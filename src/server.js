@@ -20,16 +20,18 @@ app.use(cors({
 app.get('/', (req, res) => res.send("Hello"));
 
 //initialize database 
-import database from "./config/config.db.js";
+import database from "./config/db.config.js";
 
 // routes
-// import authRouter from "./routes/auth.route.js";
+import authRouter from "./routers/auth.router.js";
+import userRouter from "./routers/user.router.js"
 
 //start server
 !async function () {
     try {
         database();
-        // app.use(authRouter);
+        app.use(authRouter);
+        app.use(userRouter);
     } catch (error) {
         console.log(error);
     }
