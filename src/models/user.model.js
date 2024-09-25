@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import mongoose from "mongoose";
+import mongoose, { Types } from "mongoose";
 
 const userSchema = new mongoose.Schema({
     first_name: {
@@ -10,11 +10,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    login: {
-        type: String,
-        required: true
-    },
-    password: {
+    third_name: {
         type: String,
         required: true
     },
@@ -28,17 +24,22 @@ const userSchema = new mongoose.Schema({
     },
     start_day_of_work: {
         type: Date,
-        default: Date.now
+        default: Date.now,
+        required: true
     },
     end_day_of_work: {
         type: Date,
-        default: Date.now
+        default: null
     },
-    profile_img: {
+    company_name: {
+        type: Types.ObjectId,
+        required: true
+    },
+    img: {
         type: String,
         required: true
     },
-    user_command: {
+    user_document: {
         type: String,
         required: true
     },
@@ -54,28 +55,7 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: null
     }
-},
-);
-
-userSchema.pre('save', async function (next) {
-    if (!this.isModified('password')) {
-        return next();
-    }
-    try {
-        const salt = await bcrypt.genSalt(10);
-        this.password = await bcrypt.hash(this.password, salt);
-        next();
-    } catch (err) {
-        next(err);
-    }
 });
 
-userSchema.methods.comparePassword = async function (password) {
-    try {
-        return await bcrypt.compare(password, this.password);
-    } catch (err) {
-        throw new Error(err);
-    }
-};
 
 export default mongoose.model("User", userSchema);

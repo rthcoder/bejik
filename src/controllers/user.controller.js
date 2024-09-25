@@ -41,10 +41,10 @@ const GET = async (req, res, next) => {
 
 const POST = async (req, res, next) => {
     try {
-        const { first_name, last_name, login, password, phone_number, user_role, start_day_of_work, end_day_of_work, profile_img, user_command } = req?.body
+        const { first_name, last_name, phone_number, user_role, start_day_of_work, end_day_of_work, profile_img, user_command } = req?.body
 
         const new_user = await User.create({
-            first_name, last_name, login, password, phone_number, user_role, start_day_of_work, end_day_of_work, profile_img, user_command
+            first_name, last_name, phone_number, user_role, start_day_of_work, end_day_of_work, profile_img, user_command
         });
 
         return res
@@ -61,6 +61,54 @@ const POST = async (req, res, next) => {
         return next(error);
     }
 }
+
+const PUT = async (req, res, next) => {
+    try {
+        const { first_name, last_name, phone_number, user_role, start_day_of_work, end_day_of_work, profile_img, user_command } = req?.body
+        const { id } = req?.params
+
+        const updated_user = await User.findByIdAndUpdate(id, {
+            first_name, last_name, login, password, phone_number, user_role, start_day_of_work, end_day_of_work, profile_img, user_command
+        });
+
+        return res
+            .status(201)
+            .json({
+                status: 200,
+                message: 'The user successfully updated!',
+                data: updated_user
+            });
+
+
+    } catch (error) {
+        console.log(error.message);
+        return next(error);
+    }
+}
+
+const DELETE = async (req, res, next) => {
+    try {
+        const { id } = req?.params
+
+        await User.findByIdAndUpdate(id, {
+            deleted_at: new Date()
+        });
+
+        return res
+            .status(201)
+            .json({
+                status: 200,
+                message: 'The user successfully deleted!',
+                data: null
+            });
+
+
+    } catch (error) {
+        console.log(error.message);
+        return next(error);
+    }
+}
+
 
 export default {
     GET,
