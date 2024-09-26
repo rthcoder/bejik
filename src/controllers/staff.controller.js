@@ -1,15 +1,15 @@
 import errors from "../utils/error.js";
-import User from "../models/user.model.js"
+import Staff from "../models/staff.model.js"
 
 const GET = async (req, res, next) => {
     try {
 
         if (req.params.id) {
-            const user = await User.findById(req.params.id);
+            const staff = await Staff.findById(req.params.id);
 
-            if (!user) {
+            if (!staff) {
                 return next(
-                    new errors.NotFoundError(404, "User not Found with given Id!")
+                    new errors.NotFoundError(404, "Staff not Found with given Id!")
                 )
             };
 
@@ -17,19 +17,19 @@ const GET = async (req, res, next) => {
                 .status(200)
                 .json({
                     status: 200,
-                    message: 'successfully read user!',
-                    data: user
+                    message: 'successfully read Staff!',
+                    data: staff
                 });
         };
 
-        const users = await User.find();
+        const staffs = await Staff.find();
 
         return res
             .status(200)
             .json({
                 status: 200,
-                message: 'successfully read users!',
-                data: users
+                message: 'successfully read Staffs!',
+                data: staffs
             });
 
     } catch (error) {
@@ -41,7 +41,7 @@ const GET = async (req, res, next) => {
 const POST = async (req, res, next) => {
     try {
 
-        const new_user = await User.create({
+        const new_staff = await Staff.create({
             ...req?.body
         });
 
@@ -49,7 +49,7 @@ const POST = async (req, res, next) => {
             .status(200)
             .json({
                 status: 200,
-                message: 'The user successfully created!',
+                message: 'The staff successfully created!',
                 data: new_user
             });
 
@@ -64,15 +64,15 @@ const PUT = async (req, res, next) => {
     try {
         const { id } = req?.params
 
-        const user = await User.findById(id)
+        const staff = await Staff.findById(id)
 
-        if (!user) {
+        if (!staff) {
             return next(
-                new errors.NotFoundError(404, "User not Found with given Id!")
+                new errors.NotFoundError(404, "Staff not Found with given Id!")
             )
         }
 
-        const updated_user = await User.findByIdAndUpdate(id, {
+        const updated_staff = await Staff.findByIdAndUpdate(id, {
             ...req?.body,
             updated_at: new Date()
         });
@@ -81,8 +81,8 @@ const PUT = async (req, res, next) => {
             .status(201)
             .json({
                 status: 200,
-                message: 'The user successfully updated!',
-                data: updated_user
+                message: 'The staff successfully updated!',
+                data: updated_staff
             });
 
 
@@ -104,7 +104,7 @@ const DELETE = async (req, res, next) => {
             )
         }
 
-        await User.findByIdAndUpdate(id, {
+        await Staff.findByIdAndUpdate(id, {
             deleted_at: new Date()
         });
 
@@ -112,7 +112,7 @@ const DELETE = async (req, res, next) => {
             .status(201)
             .json({
                 status: 200,
-                message: 'The user successfully deleted!',
+                message: 'The staff successfully deleted!',
                 data: null
             });
 

@@ -6,5 +6,7 @@ const router = Router();
 router.get('/api/v1/users', user.GET);
 router.get('/api/v1/users/:id', user.GET);
 router.post('/api/v1/users', user.POST);
+router.post('/api/v1/users/:id', user.POST);
+router.post('/api/v1/users/:id', user.POST);
 
 export default router;

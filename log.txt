@@ -1,3 +1,8 @@
 /api/v1/users__GET__1727190910121__MongoServerError__Invalid database name: '/admin_panel'
 /api/v1/users/1__GET__1727190951585__CastError__Cast to ObjectId failed for value "1" (type string) at path "_id" for model "User"
 /api/v1/users__POST__1727191279633__ReferenceError__Player is not defined
+/api/v1/staffs/1111111111111111__GET__1727346007268__CastError__Cast to ObjectId failed for value "1111111111111111" (type string) at path "_id" for model "Staff"
+/api/v1/staffs/1111111111111111__GET__1727346191550__CastError__Cast to ObjectId failed for value "1111111111111111" (type string) at path "_id" for model "Staff"
+/api/v1/staffs/1111111111111111__GET__1727346193585__CastError__Cast to ObjectId failed for value "1111111111111111" (type string) at path "_id" for model "Staff"
+/api/v1/staffs/1111111111111111__GET__1727346230482__CastError__Cast to ObjectId failed for value "1111111111111111" (type string) at path "_id" for model "Staff"
+/api/v1/staffs/1111111111111111__GET__1727346231294__CastError__Cast to ObjectId failed for value "1111111111111111" (type string) at path "_id" for model "Staff"
