@@ -43,10 +43,20 @@ class InternalServerError extends Error {
     }
 };
 
+class BadRequestError extends Error {
+    constructor(status, message) {
+        super(),
+            this.status = status,
+            this.name = 'BadRequestError',
+            this.message = message
+    }
+};
+
 export default {
     NotFoundError,
     ValidationError,
     AuthorizationError,
     InternalServerError,
     AuthenticationError,
+    BadRequestError
 };

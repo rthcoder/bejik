@@ -10,6 +10,10 @@ const staffSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    role: {
+        type: String,
+        required: true
+    },
     third_name: {
         type: String,
         required: true
@@ -20,6 +24,7 @@ const staffSchema = new mongoose.Schema({
     },
     login: {
         type: String,
+        unique: true,
         required: true
     },
     password: {
@@ -60,7 +65,7 @@ staffSchema.methods.comparePassword = async function (password) {
         return await bcrypt.compare(password, this.password);
     } catch (err) {
         return next(
-            new errors.AuthorizationError(400, "Invalid username or password")
+            new errors.AuthorizationError(401, "Invalid username or password")
         )
     }
 };

@@ -22,10 +22,11 @@ const staffValidation = JOI.object({
     body: JOI.object({
         first_name: JOI.string().required().min(3).max(25).alphanum(),
         last_name: JOI.string().required().min(6).max(25).alphanum(),
-        third_name: JOI.string().required().min(15).max(35).alphanum(),
+        third_name: JOI.string().required().min(5).max(35).alphanum(),
+        role: JOI.string().required().min(2).max(10),
         phone_number: JOI.string().required().regex(phoneNumberPattern),
-        login: JOI.date().required().min(6).max(15),
-        password: JOI.date().required().min(8).max(12)
+        login: JOI.string().required().min(6).max(15),
+        password: JOI.string().required().min(8).max(12)
     })
 });
 

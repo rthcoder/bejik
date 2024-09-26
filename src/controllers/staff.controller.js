@@ -50,7 +50,7 @@ const POST = async (req, res, next) => {
             .json({
                 status: 200,
                 message: 'The staff successfully created!',
-                data: new_user
+                data: new_staff
             });
 
 
@@ -62,9 +62,17 @@ const POST = async (req, res, next) => {
 
 const PUT = async (req, res, next) => {
     try {
+
+        if (!req?.body?.length) {
+            return next(
+                new errors.BadRequestError(404, "For update must enter someting!")
+            )
+        }
+
         const { id } = req?.params
 
         const staff = await Staff.findById(id)
+
 
         if (!staff) {
             return next(
@@ -72,10 +80,14 @@ const PUT = async (req, res, next) => {
             )
         }
 
-        const updated_staff = await Staff.findByIdAndUpdate(id, {
-            ...req?.body,
-            updated_at: new Date()
-        });
+        const updated_staff = await Staff.findByIdAndUpdate(
+            {
+                _id: id
+            },
+            {
+                ...req?.body,
+                updated_at: new Date()
+            });
 
         return res
             .status(201)
@@ -104,9 +116,14 @@ const DELETE = async (req, res, next) => {
             )
         }
 
-        await Staff.findByIdAndUpdate(id, {
-            deleted_at: new Date()
-        });
+        await Staff.findByIdAndUpdate(
+            {
+                _id: id
+            },
+            {
+                deleted_at: new Date()
+            }
+        );
 
         return res
             .status(201)

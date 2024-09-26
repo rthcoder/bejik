@@ -6,3 +6,39 @@
 /api/v1/staffs/1111111111111111__GET__1727346193585__CastError__Cast to ObjectId failed for value "1111111111111111" (type string) at path "_id" for model "Staff"
 /api/v1/staffs/1111111111111111__GET__1727346230482__CastError__Cast to ObjectId failed for value "1111111111111111" (type string) at path "_id" for model "Staff"
 /api/v1/staffs/1111111111111111__GET__1727346231294__CastError__Cast to ObjectId failed for value "1111111111111111" (type string) at path "_id" for model "Staff"
+/api/v1/staffs__POST__1727350689798__ReferenceError__new_user is not defined
+/api/v1/auth/login__POST__1727350722091__Error__Illegal arguments: string, undefined
+/api/v1/auth/login__POST__1727350759697__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1727350770651__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1727350805124__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1727350829245__AuthorizationError__Invalid username or password
+/api/v1/staffs/1111111111111111__GET__1727350839979__CastError__Cast to ObjectId failed for value "1111111111111111" (type string) at path "_id" for model "Staff"
+/api/v1/auth/login__POST__1727350921959__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1727350922998__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1727351007757__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1727351175560__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1727351220011__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1727351275216__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1727351311715__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1727351394768__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1727351395917__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1727351436191__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1727351453293__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1727351683511__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1727351685729__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1727351765698__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1727351766648__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1727351767206__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1727351767816__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1727351768378__AuthorizationError__Invalid username or password
+/api/v1/staffs__POST__1727351929407__ValidationError__"body.third_name" length must be at least 15 characters long
+/api/v1/staffs__POST__1727351958958__ValidationError__"body.phone_number" with value "12" fails to match the required pattern: /^998[389][012345789][0-9]{7}$/
+/api/v1/staffs__POST__1727351969888__ValidationError__"body.phone_number" is required
+/api/v1/staffs__POST__1727351972740__ValidationError__"body.third_name" is required
+/api/v1/staffs__POST__1727351977367__ValidationError__"body.phone_number" with value "12" fails to match the required pattern: /^998[389][012345789][0-9]{7}$/
+/api/v1/staffs__POST__1727351985099__ValidationError__"body.login" must be a valid date
+/api/v1/staffs__POST__1727352001918__ValidationError__"body.login" length must be at least 6 characters long
+/api/v1/staffs__POST__1727352010628__ValidationError__"body.password" length must be at least 8 characters long
+/api/v1/staffs/66f54cce11a106ffc0e07058__PUT__1727352234204__BadRequestError__Staff not Found with given Id!
+/api/v1/staffs__POST__1727352451895__ValidationError__"body.role" is not allowed
+/api/v1/staffs__POST__1727352494740__MongoServerError__E11000 duplicate key error collection: test.staffs index: login_1 dup key: { login: "nimadirda11" }

@@ -62,9 +62,17 @@ const POST = async (req, res, next) => {
 
 const PUT = async (req, res, next) => {
     try {
+
+        if (!req?.body?.length) {
+            return next(
+                new errors.BadRequestError(404, "For update must enter someting!")
+            )
+        }
+
         const { id } = req?.params
 
         const user = await User.findById(id)
+
 
         if (!user) {
             return next(
@@ -96,17 +104,22 @@ const DELETE = async (req, res, next) => {
     try {
         const { id } = req?.params
 
-        const staff = await Staff.findById(id)
+        const user = await User.findById(id)
 
-        if (!staff) {
+        if (!user) {
             return next(
                 new errors.NotFoundError(404, "Staff not Found with given Id!")
             )
         }
 
-        await User.findByIdAndUpdate(id, {
-            deleted_at: new Date()
-        });
+        await User.findByIdAndUpdate(
+            {
+                _id: id
+            },
+            {
+                deleted_at: new Date()
+            }
+        );
 
         return res
             .status(201)

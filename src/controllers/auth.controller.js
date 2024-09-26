@@ -1,26 +1,26 @@
 import bcrypt from "bcryptjs";
 import errors from "../utils/error.js";
-import Staff from "../models/user.model.js";
+import Staff from "../models/staff.model.js";
 import JWT from "../services/jwt.js"
 
 const LOGIN = async (req, res, next) => {
     try {
-        const { username, password } = req?.body
+        const { login, password } = req?.body
 
-        if (!(username || password)) {
+        if (!(login || password)) {
             return next(
-                new errors.AuthenticationError(401, "Input is required")
+                new errors.AuthenticationError(400, "Input is required")
             )
         }
 
         const agent = req.headers['user-agent']
         const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
 
-        const staff = await Staff.findOne({ username })
+        const staff = await Staff.findOne({ login })
 
         if (!(staff && (await bcrypt.compare(password, staff.password)))) {
             return next(
-                new errors.AuthorizationError(400, "Invalid username or password")
+                new errors.AuthorizationError(401, "Invalid username or password")
             )
         }
 
@@ -29,7 +29,7 @@ const LOGIN = async (req, res, next) => {
             .json({
                 status: 200,
                 message: 'The user successfully sign in!',
-                token: JWT.sign({ user_id: staff._id, ip, agent }),
+                token: JWT.sign({ staff_id: staff._id, ip, agent }),
                 data: staff
             })
 
