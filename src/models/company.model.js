@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const companySchema = new mongoose.Schema({
-    company_name: {
+    companyName: {
         type: String,
         required: true,
     },
@@ -9,15 +9,15 @@ const companySchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    created_at: {
+    createdAt: {
         type: Date,
         default: Date.now
     },
-    updated_at: {
+    updatedAt: {
         type: Date,
         default: null
     },
-    deleted_at: {
+    deletedAt: {
         type: Date,
         default: null
     }

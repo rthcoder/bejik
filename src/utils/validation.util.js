@@ -4,27 +4,25 @@ const phoneNumberPattern = /^998[389][012345789][0-9]{7}$/
 
 const userValidation = JOI.object({
     body: JOI.object({
-        first_name: JOI.string().required().min(3).max(25).alphanum(),
-        last_name: JOI.string().required().min(6).max(25).alphanum(),
-        third_name: JOI.string().required().min(15).max(35).alphanum(),
-        phone_number: JOI.string().required().regex(phoneNumberPattern),
-        user_role: JOI.string().required().min(3).max(25),
-        start_day_of_work: JOI.date().iso().required(),
-        end_day_of_work: JOI.date().iso().required(),
-        company_name: JOI.string().required().min(3).max(25),
-        img: JOI.string().required(),
-        user_document: JOI.string().required(),
-
+        firstName: JOI.string().required().min(3).max(25),
+        lastName: JOI.string().required().min(6).max(25),
+        thirdName: JOI.string().required().min(6).max(35),
+        phoneNumber: JOI.string().required().regex(phoneNumberPattern),
+        role: JOI.string().required().min(3).max(25),
+        // document: JOI.string().required(),
+        company: JOI.string().required(),
+        startDate: JOI.date().iso().required(),
+        // img: JOI.string().required(),
     })
 });
 
 const staffValidation = JOI.object({
     body: JOI.object({
-        first_name: JOI.string().required().min(3).max(25).alphanum(),
-        last_name: JOI.string().required().min(6).max(25).alphanum(),
-        third_name: JOI.string().required().min(5).max(35).alphanum(),
+        firstName: JOI.string().required().min(3).max(25).alphanum(),
+        lastName: JOI.string().required().min(6).max(25).alphanum(),
+        thirdName: JOI.string().required().min(5).max(35).alphanum(),
         role: JOI.string().required().min(2).max(10),
-        phone_number: JOI.string().required().regex(phoneNumberPattern),
+        phoneNumber: JOI.string().required().regex(phoneNumberPattern),
         login: JOI.string().required().min(6).max(15),
         password: JOI.string().required().min(8).max(12)
     })
@@ -32,7 +30,7 @@ const staffValidation = JOI.object({
 
 const companyValidation = JOI.object({
     body: JOI.object({
-        company_name: JOI.string().required().min(3).max(50),
+        companyName: JOI.string().required().min(3).max(50),
         img: JOI.string().required(),
     })
 });

@@ -1,36 +1,36 @@
 import mongoose, { Types } from "mongoose";
 
 const userSchema = new mongoose.Schema({
-    first_name: {
+    firstName: {
         type: String,
         required: true,
     },
-    last_name: {
+    lastName: {
         type: String,
         required: true
     },
-    third_name: {
+    thirdName: {
         type: String,
         required: true
     },
-    phone_number: {
+    phoneNumber: {
         type: String,
         required: true
     },
-    user_role: {
+    role: {
         type: String,
         required: true
     },
-    start_day_of_work: {
+    startDate: {
         type: Date,
         default: Date.now,
         required: true
     },
-    end_day_of_work: {
+    endDate: {
         type: Date,
         default: null
     },
-    company_name: {
+    company: {
         type: Types.ObjectId,
         required: true
     },
@@ -38,19 +38,23 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    user_document: {
+    document: {
         type: String,
         required: true
     },
-    created_at: {
+    status: {
+        type: String,
+        required: true
+    },
+    createdAt: {
         type: Date,
         default: Date.now
     },
-    updated_at: {
+    updatedAt: {
         type: Date,
         default: null
     },
-    deleted_at: {
+    deletedAt: {
         type: Date,
         default: null
     }

@@ -42,3 +42,102 @@
 /api/v1/staffs/66f54cce11a106ffc0e07058__PUT__1727352234204__BadRequestError__Staff not Found with given Id!
 /api/v1/staffs__POST__1727352451895__ValidationError__"body.role" is not allowed
 /api/v1/staffs__POST__1727352494740__MongoServerError__E11000 duplicate key error collection: test.staffs index: login_1 dup key: { login: "nimadirda11" }
+/api/v1/users/66f2d90b70481b19b3231846__GET__1727429614013__NotFoundError__User not Found with given Id!
+/api/v1/users__POST__1727429990496__ValidationError__User validation failed: user_document: Path `user_document` is required., img: Path `img` is required., company_name: Path `company_name` is required., third_name: Path `third_name` is required., status: Path `status` is required.
+/api/v1/users__POST__1727430041240__ValidationError__User validation failed: user_document: Path `user_document` is required., img: Path `img` is required., company_name: Path `company_name` is required., third_name: Path `third_name` is required., status: Path `status` is required.
+/api/v1/users__POST__1727430132180__ValidationError__User validation failed: user_document: Path `user_document` is required., img: Path `img` is required., company_name: Path `company_name` is required., third_name: Path `third_name` is required., status: Path `status` is required.
+/api/v1/users__POST__1727430141285__ValidationError__User validation failed: user_document: Path `user_document` is required., img: Path `img` is required., company_name: Path `company_name` is required., third_name: Path `third_name` is required., status: Path `status` is required.
+/api/v1/users__POST__1727430215551__ValidationError__User validation failed: user_document: Path `user_document` is required., img: Path `img` is required., company: Path `company` is required., third_name: Path `third_name` is required., status: Path `status` is required.
+/api/v1/users__POST__1727430273980__ValidationError__User validation failed: user_document: Path `user_document` is required., img: Path `img` is required., company: Path `company` is required., third_name: Path `third_name` is required., status: Path `status` is required.
+/api/v1/users__POST__1727430329798__ValidationError__"body.last_name" length must be at least 6 characters long
+/api/v1/users__POST__1727430342274__ValidationError__"body.third_name" is required
+/api/v1/users__POST__1727430360631__ValidationError__"body.third_name" length must be at least 15 characters long
+/api/v1/users__POST__1727430374912__ValidationError__"body.phone_number" with value "65464646454" fails to match the required pattern: /^998[389][012345789][0-9]{7}$/
+/api/v1/users__POST__1727430385497__ValidationError__"body.phone_number" with value "+998951234578" fails to match the required pattern: /^998[389][012345789][0-9]{7}$/
+/api/v1/users__POST__1727430391089__ValidationError__"body.user_document" is required
+/api/v1/users__POST__1727430413967__ValidationError__"body.company" is required
+/api/v1/users__POST__1727430430109__ValidationError__"body.start_day_of_work" must be in ISO 8601 date format
+/api/v1/users__POST__1727430487038__ValidationError__"body.start_day_of_work" is required
+/api/v1/users__POST__1727430538839__ValidationError__"body.start_date" must be in ISO 8601 date format
+/api/v1/users__POST__1727430563135__ValidationError__"body.company_name" is required
+/api/v1/users__POST__1727430578793__ValidationError__"body.company" length must be at least 3 characters long
+/api/v1/users__POST__1727430585887__ValidationError__"body.company" length must be at least 3 characters long
+/api/v1/users__POST__1727430587005__ValidationError__"body.company" length must be at least 3 characters long
+/api/v1/users__POST__1727430588072__ValidationError__"body.company" length must be at least 3 characters long
+/api/v1/users__POST__1727430613913__ValidationError__"body.img" is required
+/api/v1/users__POST__1727430623101__ValidationError__"body.login" is not allowed
+/api/v1/users__POST__1727430640479__ValidationError__"body.login" is not allowed
+/api/v1/users__POST__1727430642173__ValidationError__"body.login" is not allowed
+/api/v1/users__POST__1727430644240__ValidationError__"body.login" is not allowed
+/api/v1/users__POST__1727430644892__ValidationError__"body.login" is not allowed
+/api/v1/users__POST__1727430645281__ValidationError__"body.login" is not allowed
+/api/v1/users__POST__1727430679552__ValidationError__"body.login" is not allowed
+/api/v1/users__POST__1727430703445__ValidationError__"body.password" is not allowed
+/api/v1/users__POST__1727430705798__ValidationError__"body.profile_img" is not allowed
+/api/v1/users__POST__1727430716899__ValidationError__"body.user_command" is not allowed
+/api/v1/users__POST__1727430728430__ValidationError__User validation failed: company: Cast to ObjectId failed for value "aaa" (type string) at path "company" because of "BSONError", status: Path `status` is required.
+/api/v1/users__POST__1727430731880__SyntaxError__Expected double-quoted property name in JSON at position 260
+/api/v1/users__POST__1727430737922__ValidationError__User validation failed: company: Cast to ObjectId failed for value "aaa" (type string) at path "company" because of "BSONError", status: Path `status` is required.
+/api/v1/users__POST__1727430739190__ValidationError__User validation failed: company: Cast to ObjectId failed for value "aaa" (type string) at path "company" because of "BSONError", status: Path `status` is required.
+/api/v1/users__POST__1727430884178__ValidationError__User validation failed: company: Cast to ObjectId failed for value "aaa" (type string) at path "company" because of "BSONError", status: Path `status` is required.
+/api/v1/users__POST__1727430924982__ValidationError__User validation failed: company: Cast to ObjectId failed for value "aaa" (type string) at path "company" because of "BSONError", status: Path `status` is required.
+/api/v1/users__POST__1727430925908__ValidationError__User validation failed: company: Cast to ObjectId failed for value "aaa" (type string) at path "company" because of "BSONError", status: Path `status` is required.
+/api/v1/users__POST__1727430941223__ValidationError__User validation failed: company: Cast to ObjectId failed for value "aaa" (type string) at path "company" because of "BSONError", status: Path `status` is required.
+/api/v1/users__POST__1727430969015__ValidationError__User validation failed: company: Cast to ObjectId failed for value "aaa" (type string) at path "company" because of "BSONError", status: Path `status` is required.
+/api/v1/users__POST__1727430977691__ValidationError__User validation failed: company: Cast to ObjectId failed for value "aaa" (type string) at path "company" because of "BSONError", status: Path `status` is required.
+/api/v1/users__POST__1727431846405__ValidationError__"body.thirdName" must only contain alpha-numeric characters
+/api/v1/users__POST__1727431869201__ValidationError__"body.phoneNumber" with value "99890123qwqw4578" fails to match the required pattern: /^998[389][012345789][0-9]{7}$/
+/api/v1/users__POST__1727431870823__ValidationError__"body.startDate" must be a valid date
+/api/v1/users__POST__1727431886185__ValidationError__"body.startDate" must be a valid date
+/api/v1/users__POST__1727432333977__ValidationError__"body.startDate" must be a valid date
+/api/v1/users__POST__1727432337637__ValidationError__"body.startDate" must be a valid date
+/api/v1/users__POST__1727432338289__ValidationError__"body.startDate" must be a valid date
+/api/v1/users__POST__1727432658699__ValidationError__User validation failed: status: Path `status` is required.
+/api/v1/users/66f2d90b70481b19b3231846__GET__1727432707159__NotFoundError__User not Found with given Id!
+/api/v1/users__POST__1727499617341__Error__Allowed only pdf files!
+/api/v1/users__POST__1727499878216__AuthenticationError__Allowed only pdf files!
+/api/v1/users__POST__1727499939123__AuthenticationError__Allowed only pdf files!
+/api/v1/users__POST__1727499971411__AuthenticationError__Allowed only pdf files!
+/api/v1/users__POST__1727500000490__Error__Allowed only pdf files!
+/api/v1/users__POST__1727500520878__ValidationError__"body.document" is required
+/api/v1/users__POST__1727500528593__ValidationError__"body.document" is not allowed to be empty
+/api/v1/users__POST__1727500539054__ValidationError__"body.document" is required
+/api/v1/users__POST__1727500545916__ValidationError__"body.document" is required
+/api/v1/users__POST__1727500546783__ValidationError__"body.document" is required
+/api/v1/users__POST__1727500593077__ValidationError__"body.document" is required
+/api/v1/users__POST__1727500613717__ValidationError__"body.document" is required
+/api/v1/users__POST__1727500665182__ValidationError__"body.document" is required
+/api/v1/users__POST__1727500677648__ValidationError__"body.document" is required
+/api/v1/users__POST__1727500847498__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727500872989__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727501270454__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727501456580__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727501614538__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727502314405__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727502315698__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727502326737__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727502355321__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727502424352__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727502440142__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727502452761__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727502463080__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727502470692__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727502658811__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727502744024__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727502783193__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727502796184__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727502809111__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727502817562__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727502822566__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727502850187__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727502866479__ValidationError__User validation failed: document: Path `document` is required., img: Path `img` is required.
+/api/v1/users__POST__1727502877437__ReferenceError__new_user is not defined
+/api/v1/users__POST__1727502891481__TypeError__Cannot read properties of undefined (reading '0')
+/api/v1/users__POST__1727502909673__NotFoundError__User not Found with given Id!
+/api/v1/users__POST__1727502936926__NotFoundError__User document required
+/api/v1/users__POST__1727502964036__NotFoundError__User document required
+/api/v1/users__POST__1727502972877__NotFoundError__User document required
+/api/v1/users__POST__1727502977316__NotFoundError__User image required!
+/api/v1/users__POST__1727503523193__ValidationError__User validation failed: startDate: Cast to date failed for value "Invalid Date" (type Date) at path "startDate"
+/api/v1/users__POST__1727503548877__ValidationError__"body.startDate" must be in ISO 8601 date format
+/api/v1/users__POST__1727503553887__ValidationError__User validation failed: startDate: Cast to date failed for value "Invalid Date" (type Date) at path "startDate"

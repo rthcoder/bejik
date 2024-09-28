@@ -3,6 +3,8 @@ import fs from "fs";
 const server_errors = (error, req, res, next) => {
     console.log(error);
 
+
+
     fs.appendFileSync('./log.txt', `${req.url}__${req.method}__${Date.now()}__${error.name}__${error.message}\n`)
 
     if (error.name == 'ValidationError') {

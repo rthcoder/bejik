@@ -2,11 +2,15 @@ import bcrypt from "bcryptjs";
 import mongoose from "mongoose";
 
 const staffSchema = new mongoose.Schema({
-    first_name: {
+    firstName: {
         type: String,
         required: true,
     },
-    last_name: {
+    lastName: {
+        type: String,
+        required: true
+    },
+    thirdName: {
         type: String,
         required: true
     },
@@ -14,11 +18,7 @@ const staffSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    third_name: {
-        type: String,
-        required: true
-    },
-    phone_number: {
+    phoneNumber: {
         type: String,
         required: true
     },
@@ -31,15 +31,15 @@ const staffSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    created_at: {
+    createdAt: {
         type: Date,
         default: Date.now
     },
-    updated_at: {
+    updatedAt: {
         type: Date,
         default: null
     },
-    deleted_at: {
+    deletedAt: {
         type: Date,
         default: null
     }

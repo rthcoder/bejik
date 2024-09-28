@@ -5,10 +5,17 @@ export default (req, res, next) => {
     try {
 
         if (req.method === 'POST' && req.url == '/api/v1/staffs') {
-            console.log('keldim');
-
-
             const { error } = validation.staffValidation.validate({ body: req.body })
+
+            if (error) {
+                return next(
+                    new errors.ValidationError(400, error.message)
+                )
+            }
+        }
+
+        if (req.method === 'POST' && req.url == '/api/v1/users') {
+            const { error } = validation.userValidation.validate({ body: req.body })
 
             if (error) {
                 return next(

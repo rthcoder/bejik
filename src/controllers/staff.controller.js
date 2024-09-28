@@ -86,7 +86,7 @@ const PUT = async (req, res, next) => {
             },
             {
                 ...req?.body,
-                updated_at: new Date()
+                updatedAt: new Date()
             });
 
         return res
@@ -121,7 +121,7 @@ const DELETE = async (req, res, next) => {
                 _id: id
             },
             {
-                deleted_at: new Date()
+                deletedAt: new Date()
             }
         );
 

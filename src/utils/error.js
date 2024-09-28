@@ -34,6 +34,15 @@ class AuthenticationError extends Error {
     }
 };
 
+class MulterError extends Error {
+    constructor(status, message) {
+        super()
+        this.status = status
+        this.name = 'MulterError'
+        this.message = message
+    }
+};
+
 class InternalServerError extends Error {
     constructor(status, message) {
         super(),
@@ -58,5 +67,6 @@ export default {
     AuthorizationError,
     InternalServerError,
     AuthenticationError,
-    BadRequestError
+    BadRequestError,
+    MulterError
 };

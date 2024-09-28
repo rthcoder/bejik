@@ -1,5 +1,7 @@
 import errors from "../utils/error.js";
-import User from "../models/user.model.js"
+import User from "../models/user.model.js";
+import UserStatuses from "../types/types.js";
+
 
 const GET = async (req, res, next) => {
     try {
@@ -41,9 +43,32 @@ const GET = async (req, res, next) => {
 const POST = async (req, res, next) => {
     try {
 
+
+        // console.log(req.files.document[0])
+        // console.log(req.files.img[0])
+
+        if (!req.files.document) {
+            return next(
+                new errors.NotFoundError(404, "User document required")
+            )
+        }
+        if (!req.files.img) {
+            return next(
+                new errors.NotFoundError(404, "User image required!")
+            )
+        }
+
+        const document = req.files.document[0].filename
+        const img = req.files.img[0].filename
+
         const new_user = await User.create({
-            ...req?.body
+            ...req?.body,
+            startDate: new Date(req?.body?.startDate),
+            document,
+            img,
+            status: UserStatuses.UserStatuses.ACTIVE
         });
+
 
         return res
             .status(200)
@@ -70,6 +95,7 @@ const PUT = async (req, res, next) => {
         }
 
         const { id } = req?.params
+        const { status } = req?.body
 
         const user = await User.findById(id)
 
@@ -81,8 +107,8 @@ const PUT = async (req, res, next) => {
         }
 
         const updated_user = await User.findByIdAndUpdate(id, {
-            ...req?.body,
-            updated_at: new Date()
+            status: status,
+            updatedAt: new Date()
         });
 
         return res
@@ -117,7 +143,8 @@ const DELETE = async (req, res, next) => {
                 _id: id
             },
             {
-                deleted_at: new Date()
+                deletedAt: new Date(),
+                end_date
             }
         );
 
