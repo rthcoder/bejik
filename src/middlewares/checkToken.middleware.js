@@ -1,10 +1,10 @@
 import errors from "../utils/error.js";
 import Staff from "../models/staff.model.js";
-import JWT from "../services/JWT.service.js";
+import JWT from "../services/jwt.js";
 
 export default async function (req, res, next) {
     try {
-        const token = request.headers.authorization?.replace(/^(bearer)\s/i, '')
+        const token = req.headers.authorization?.replace(/^(bearer)\s/i, '')
 
         if (!token) {
             return next(
@@ -14,7 +14,7 @@ export default async function (req, res, next) {
 
         let staffs = await Staff.find();
 
-        const { staff_id, agent, ip } = JWT.verify(token);
+        const { staffId, agent, ip } = JWT.verify(token);
 
         if (!(req.headers['user-agent'] == agent)) {
             return next(
@@ -28,7 +28,7 @@ export default async function (req, res, next) {
             )
         };
 
-        const staff = staffs.some(staff => staff._id == staff_id);
+        const staff = staffs.some(staff => staff._id == staffId);
 
         if (!staff) {
             return next(
@@ -36,9 +36,15 @@ export default async function (req, res, next) {
             )
         };
 
-        req.staff_id = staff_id;
-        req.role = staff?.role;
+        const staffRole = await Staff.findById(
+            {
+                _id: staffId,
+                deletedAt: null
+            }
+        )
 
+        req.staffId = staffId;
+        req.role = staffRole.role
         next();
 
     } catch (error) {

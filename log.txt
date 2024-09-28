@@ -245,3 +245,23 @@
 /api/v1/users/66f7db8a1ed7b05219a18fed__PUT__1727524765092__BadRequestError__Status must be 1 or 0!
 /api/v1/users/66f7db8a1ed7b05219a18fed__PUT__1727524768804__BadRequestError__Status must be 1 or 0!
 /api/v1/users/66f7db8a1ed7b05219a18fed__PUT__1727524770997__BadRequestError__Status must be 1 or 0!
+/api/v1/users__GET__1727525080793__ReferenceError__request is not defined
+/api/v1/users__GET__1727525100104__AuthorizationError__User is un authorized
+/api/v1/users__GET__1727525147075__AuthorizationError__User is un authorized
+/api/v1/users__GET__1727525148178__AuthorizationError__User is un authorized
+/api/v1/users__GET__1727525164018__AuthenticationError__Access denied
+/api/v1/users__GET__1727525195391__AuthenticationError__Access denied
+/api/v1/users__GET__1727525197348__AuthenticationError__Access denied
+/api/v1/users__GET__1727525204339__AuthenticationError__Access denied
+/api/v1/users__GET__1727525275298__AuthorizationError__The token invalid
+/api/v1/users__GET__1727525292850__AuthenticationError__Access denied
+/api/v1/users__GET__1727525307587__AuthenticationError__Access denied
+/api/v1/users__GET__1727525417672__TypeError__Cannot read properties of null (reading '$elemMatch')
+/api/v1/users__GET__1727525476605__CastError__Cast to ObjectId failed for value "{ _id: undefined, deletedAt: null }" (type Object) at path "_id" for model "Staff"
+/api/v1/users__GET__1727525491668__AuthenticationError__Access denied
+/api/v1/users__GET__1727525504089__AuthenticationError__Access denied
+/api/v1/users__GET__1727525522535__AuthenticationError__Access denied
+/api/v1/users__GET__1727525539070__AuthenticationError__Access denied
+/api/v1/users__GET__1727525547248__AuthenticationError__Access denied
+/api/v1/users__GET__1727525612333__TypeError__Cannot read properties of undefined (reading 'HR')
+/api/v1/users/66f7db8a1ed7b05219a18fed__GET__1727525638767__AuthorizationError__User is un authorized

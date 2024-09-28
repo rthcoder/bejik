@@ -29,7 +29,7 @@ const LOGIN = async (req, res, next) => {
             .json({
                 status: 200,
                 message: 'The user successfully sign in!',
-                token: JWT.sign({ staff_id: staff._id, ip, agent }),
+                token: JWT.sign({ staffId: staff._id, ip, agent }),
                 data: staff
             })
 
