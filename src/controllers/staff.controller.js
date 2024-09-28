@@ -3,9 +3,13 @@ import Staff from "../models/staff.model.js"
 
 const GET = async (req, res, next) => {
     try {
-
         if (req.params.id) {
-            const staff = await Staff.findById(req.params.id);
+            const staff = await Staff.findById(
+                {
+                    _id: req.params.id,
+                    deletedAt: null
+                }
+            ).select('-deletedAt -updatedAt -password');
 
             if (!staff) {
                 return next(
@@ -22,7 +26,7 @@ const GET = async (req, res, next) => {
                 });
         };
 
-        const staffs = await Staff.find();
+        const staffs = await Staff.find({ deletedAt: null }).select('-deletedAt -updatedAt -password');
 
         return res
             .status(200)
@@ -40,6 +44,20 @@ const GET = async (req, res, next) => {
 
 const POST = async (req, res, next) => {
     try {
+
+        const { login } = req?.body
+
+        const staffExist = await Staff.findOne(
+            {
+                login
+            }
+        )
+
+        if (staffExist) {
+            return next(
+                new errors.ConflictError(409, "Login already exists!")
+            )
+        }
 
         const new_staff = await Staff.create({
             ...req?.body

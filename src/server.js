@@ -36,14 +36,11 @@ import staffRouter from "./routers/staff.router.js";
     app.use((err, req, res, next) => {
         fs.appendFileSync('./log.txt', `${req.url}__${req.method}__${Date.now()}__${err.name}__${err.message}\n`);
 
-        // Xatolikni konsolga chiqarish (server loglari uchun)
         console.error(err);
 
-        // Default status va xabar
         let status = err.status || 500;
         let message = err.message || 'Internal Server Error';
 
-        // Maxsus xatolik turlari uchun qayta belgilash
         switch (err.name) {
             case 'ValidationError':
                 status = 400;
@@ -65,17 +62,19 @@ import staffRouter from "./routers/staff.router.js";
                 status = 400;
                 message = err.message || 'Bad Request';
                 break;
-            // MulterError va boshqa xatolik turlari
             case 'MulterError':
                 status = 400;
                 message = err.message || 'File Upload Error';
+                break;
+            case 'ConflictError':
+                status = 409;
+                message = err.message || 'ConflictError';
                 break;
             default:
                 status = 500;
                 message = 'Internal Server Error';
         }
 
-        // Javobni yuborish
         res.status(status).json({
             status: status,
             message: message,

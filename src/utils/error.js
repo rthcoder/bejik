@@ -61,6 +61,15 @@ class BadRequestError extends Error {
     }
 };
 
+class ConflictError extends Error {
+    constructor(status, message) {
+        super(),
+            this.status = status,
+            this.name = 'ConflictError',
+            this.message = message
+    }
+};
+
 export default {
     NotFoundError,
     ValidationError,
@@ -68,5 +77,6 @@ export default {
     InternalServerError,
     AuthenticationError,
     BadRequestError,
-    MulterError
+    MulterError,
+    ConflictError
 };

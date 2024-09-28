@@ -6,8 +6,16 @@ import UserStatuses from "../types/types.js";
 const GET = async (req, res, next) => {
     try {
 
-        if (req.params.id) {
-            const user = await User.findById(req.params.id);
+        const id = req?.params?.id
+
+        if (id) {
+            const user = await User.findById(
+                {
+                    _id: id,
+                    deletedAt: null
+                }
+            ).select('-updatedAt -deletedAt -__v')
+                ;
 
             if (!user) {
                 return next(
@@ -24,7 +32,11 @@ const GET = async (req, res, next) => {
                 });
         };
 
-        const users = await User.find();
+        const users = await User.find(
+            {
+                deletedAt: null
+            }
+        ).select('-updatedAt -deletedAt -__v');
 
         return res
             .status(200)
@@ -42,11 +54,6 @@ const GET = async (req, res, next) => {
 
 const POST = async (req, res, next) => {
     try {
-
-
-        // console.log(req.files.document[0])
-        // console.log(req.files.img[0])
-
         if (!req.files.document) {
             return next(
                 new errors.NotFoundError(404, "User document required")
@@ -144,7 +151,8 @@ const DELETE = async (req, res, next) => {
             },
             {
                 deletedAt: new Date(),
-                end_date
+                endDate: newDate(),
+                status: UserStatuses.UserStatuses.PASSIVE
             }
         );
 

@@ -141,3 +141,18 @@
 /api/v1/users__POST__1727503523193__ValidationError__User validation failed: startDate: Cast to date failed for value "Invalid Date" (type Date) at path "startDate"
 /api/v1/users__POST__1727503548877__ValidationError__"body.startDate" must be in ISO 8601 date format
 /api/v1/users__POST__1727503553887__ValidationError__User validation failed: startDate: Cast to date failed for value "Invalid Date" (type Date) at path "startDate"
+/api/v1/staffs/66f54983ee6ea76c96cbbef0__GET__1727512175843__NotFoundError__Staff not Found with given Id!
+/api/v1/staffs__POST__1727512190106__MongoServerError__E11000 duplicate key error collection: test.staffs index: login_1 dup key: { login: "nimadirda111" }
+/api/v1/staffs__POST__1727512420521__ConflictError__Login already exists!
+/api/v1/users__POST__1727512448414__NotFoundError__User image required!
+/api/v1/staffs__POST__1727512484155__ConflictError__User image required!
+/api/v1/staffs__POST__1727512562592__ConflictError__User image required!
+/api/v1/staffs__POST__1727512574873__ConflictError__Login already exists!
+/api/v1/staffs__POST__1727512583184__ConflictError__Login already exists!
+/api/v1/staffs/66f7c01264a3e5b3f820c562__DELETE__1727512635271__NotFoundError__Staff not Found with given Id!
+/api/v1/users__POST__1727512892911__NotFoundError__User document required
+/api/v1/users__POST__1727512897576__NotFoundError__User image required!
+/api/v1/users__POST__1727512905704__AuthenticationError__Allowed only image files!
+/api/v1/users__POST__1727513004310__AuthenticationError__Allowed only image files for user image!
+/api/v1/staffs/66f7c1b798eef819bfbe0163__DELETE__1727513118682__NotFoundError__Staff not Found with given Id!
+/api/v1/staffs/66f7c1b798eef819bfbe0163__GET__1727513123363__NotFoundError__Staff not Found with given Id!
