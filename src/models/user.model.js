@@ -32,7 +32,8 @@ const userSchema = new mongoose.Schema({
     },
     company: {
         type: Types.ObjectId,
-        required: true
+        required: true,
+        ref: "Company"
     },
     img: {
         type: String,

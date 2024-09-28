@@ -24,7 +24,6 @@ const staffSchema = new mongoose.Schema({
     },
     login: {
         type: String,
-        unique: true,
         required: true
     },
     password: {

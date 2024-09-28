@@ -14,8 +14,7 @@ const GET = async (req, res, next) => {
                     _id: id,
                     deletedAt: null
                 }
-            ).select('-updatedAt -deletedAt -__v')
-                ;
+            ).select('-updatedAt -deletedAt -__v').populate('company', '_id companyName img createdAt');
 
             if (!user) {
                 return next(
@@ -36,7 +35,7 @@ const GET = async (req, res, next) => {
             {
                 deletedAt: null
             }
-        ).select('-updatedAt -deletedAt -__v');
+        ).select('-updatedAt -deletedAt -__v').populate('company', '_id companyName img createdAt');
 
         return res
             .status(200)
@@ -94,44 +93,58 @@ const POST = async (req, res, next) => {
 
 const PUT = async (req, res, next) => {
     try {
-
-        if (!req?.body?.length) {
+        if (!req.body || Object.keys(req.body).length === 0) {
             return next(
-                new errors.BadRequestError(404, "For update must enter someting!")
-            )
+                new errors.BadRequestError(400, "For update, you must enter something!")
+            );
         }
 
-        const { id } = req?.params
-        const { status } = req?.body
+        const { id } = req.params;
+        let { status } = req.body;
 
-        const user = await User.findById(id)
-
+        const user = await User.findById(id);
 
         if (!user) {
             return next(
                 new errors.NotFoundError(404, "User not Found with given Id!")
-            )
+            );
+        }
+
+        status = Number(status);
+
+        if (status !== 1 && status !== 0) {
+            return next(
+                new errors.BadRequestError(400, "Status must be 1 or 0!")
+            );
+        }
+
+        if (status === 1) {
+            status = UserStatuses.UserStatuses.ACTIVE;
+        }
+
+        else if (status === 0) {
+            status = UserStatuses.UserStatuses.PASSIVE;
         }
 
         const updated_user = await User.findByIdAndUpdate(id, {
-            status: status,
+            status,
             updatedAt: new Date()
-        });
+        }, { new: true });
 
         return res
-            .status(201)
+            .status(200)
             .json({
                 status: 200,
                 message: 'The user successfully updated!',
                 data: updated_user
             });
-
-
     } catch (error) {
         console.log(error.message);
         return next(error);
     }
 }
+
+
 
 const DELETE = async (req, res, next) => {
     try {
@@ -151,7 +164,7 @@ const DELETE = async (req, res, next) => {
             },
             {
                 deletedAt: new Date(),
-                endDate: newDate(),
+                endDate: new Date(),
                 status: UserStatuses.UserStatuses.PASSIVE
             }
         );

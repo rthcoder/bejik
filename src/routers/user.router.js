@@ -8,8 +8,8 @@ const router = Router();
 
 router.get('/api/v1/users', user.GET);
 router.get('/api/v1/users/:id', user.GET);
-router.post('/api/v1/users', uploadFiles, multerHandler, validation, user.POST);
-router.put('/api/v1/users/:id', user.PUT);
+router.post('/api/v1/users', validation, uploadFiles, multerHandler, user.POST);
+router.put('/api/v1/users/:id', uploadFiles, multerHandler, user.PUT);
 router.delete('/api/v1/users/:id', user.DELETE);
 
 export default router;

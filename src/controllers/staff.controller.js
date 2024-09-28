@@ -49,7 +49,8 @@ const POST = async (req, res, next) => {
 
         const staffExist = await Staff.findOne(
             {
-                login
+                login,
+                deletedAt: null
             }
         )
 
@@ -81,11 +82,12 @@ const POST = async (req, res, next) => {
 const PUT = async (req, res, next) => {
     try {
 
-        if (!req?.body?.length) {
+        if (!req.body || Object.keys(req.body).length === 0) {
             return next(
-                new errors.BadRequestError(404, "For update must enter someting!")
-            )
+                new errors.BadRequestError(400, "For update, you must enter something!")
+            );
         }
+
 
         const { id } = req?.params
 
