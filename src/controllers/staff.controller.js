@@ -26,7 +26,23 @@ const GET = async (req, res, next) => {
                 });
         };
 
-        const staffs = await Staff.find({ deletedAt: null }).select('-deletedAt -updatedAt -password');
+        const { role, company, login, firstName, lastName, thirdName } = req?.query;
+
+        const escapeRegex = (text) => {
+            return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+        };
+
+        const filter = {
+            deletedAt: null,
+            ...(role && { role: { $regex: escapeRegex(role), $options: 'i' } }),
+            ...(company && { company }),
+            ...(login && { login: { $regex: escapeRegex(login), $options: 'i' } }),
+            ...(firstName && { firstName: { $regex: escapeRegex(firstName), $options: 'i' } }),
+            ...(lastName && { lastName: { $regex: escapeRegex(lastName), $options: 'i' } }),
+            ...(thirdName && { thirdName: { $regex: escapeRegex(thirdName), $options: 'i' } })
+        }
+
+        const staffs = await Staff.find(filter).select('-deletedAt -updatedAt -password');
 
         return res
             .status(200)

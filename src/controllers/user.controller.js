@@ -31,11 +31,27 @@ const GET = async (req, res, next) => {
                 });
         };
 
+        const { role, company, status, firstName, lastName, thirdName, page = process.DEFAULTS.page, limit = process.DEFAULTS.limit } = req?.query;
+
+        let skip = (page - 1) * limit
+
+        const escapeRegex = (text) => {
+            return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+        };
+
+        const filter = {
+            deletedAt: null,
+            ...(role && { role: { $regex: escapeRegex(role), $options: 'i' } }),
+            ...(company && { company }),
+            ...(status && { status: { $regex: escapeRegex(status), $options: 'i' } }),
+            ...(firstName && { firstName: { $regex: escapeRegex(firstName), $options: 'i' } }),
+            ...(lastName && { lastName: { $regex: escapeRegex(lastName), $options: 'i' } }),
+            ...(thirdName && { thirdName: { $regex: escapeRegex(thirdName), $options: 'i' } })
+        }
+
         const users = await User.find(
-            {
-                deletedAt: null
-            }
-        ).select('-updatedAt -deletedAt -__v').populate('company', '_id companyName img createdAt');
+            filter
+        ).skip(skip).limit(limit).select('-updatedAt -deletedAt -__v').populate('company', '_id companyName img createdAt');
 
         return res
             .status(200)
@@ -53,12 +69,12 @@ const GET = async (req, res, next) => {
 
 const POST = async (req, res, next) => {
     try {
-        if (!req.files.document) {
+        if (!req?.files?.document) {
             return next(
                 new errors.NotFoundError(404, "User document required")
             )
         }
-        if (!req.files.img) {
+        if (!req?.files?.img) {
             return next(
                 new errors.NotFoundError(404, "User image required!")
             )

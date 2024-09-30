@@ -12,7 +12,7 @@ const router = Router();
 
 router.get('/api/v1/company', checkToken, checkRole, company.GET);
 router.get('/api/v1/company/:id', checkToken, checkRole, company.GET);
-router.post('/api/v1/company', validation, checkToken, checkRole, uploadFiles, multerHandler, company.POST);
+router.post('/api/v1/company', checkToken, checkRole, validation, uploadFiles, multerHandler, company.POST);
 router.put('/api/v1/company/:id', checkToken, checkRole, uploadFiles, multerHandler, company.PUT);
 router.delete('/api/v1/company/:id', checkToken, checkRole, company.DELETE);
 

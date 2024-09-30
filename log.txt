@@ -265,3 +265,101 @@
 /api/v1/users__GET__1727525547248__AuthenticationError__Access denied
 /api/v1/users__GET__1727525612333__TypeError__Cannot read properties of undefined (reading 'HR')
 /api/v1/users/66f7db8a1ed7b05219a18fed__GET__1727525638767__AuthorizationError__User is un authorized
+/api/v1/users?company=davr__GET__1727672834512__Error__Can't use $options
+/api/v1/staffs__GET__1727673357121__AuthorizationError__User is un authorized
+/api/v1/company__GET__1727673424320__AuthorizationError__User is un authorized
+/api/v1/users__POST__1727674222422__AuthenticationError__User is un authorized
+/api/v1/users__POST__1727674233679__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727674240282__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727674257405__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727674264498__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727674267085__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727674338936__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727674407763__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727674428756__NotFoundError__User document required
+/api/v1/users__POST__1727674462659__NotFoundError__User document required
+/api/v1/users__POST__1727674502499__NotFoundError__User document required
+/api/v1/users__POST__1727674884964__AuthenticationError__"body.firstName" is required
+/api/v1/company__POST__1727674932117__AuthenticationError__User is un authorized
+/api/v1/company__POST__1727674937802__NotFoundError__Company logo image required!
+/api/v1/company__POST__1727674985994__NotFoundError__Company logo image required!
+/api/v1/company__POST__1727675087712__NotFoundError__Company logo image required!
+/api/v1/company__POST__1727675121070__NotFoundError__Company logo image required!
+/api/v1/company__POST__1727675134641__NotFoundError__Company logo image required!
+/api/v1/company__POST__1727675224060__NotFoundError__Company logo image required!
+/api/v1/staffs__POST__1727675437531__AuthorizationError__User is un authorized
+/api/v1/users__POST__1727675473165__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727675524419__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727675752973__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727675771442__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727675803743__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727675859456__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727675863299__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727676005840__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727676061678__TypeError__Cannot read properties of undefined (reading 'document')
+/api/v1/users__POST__1727676105349__TypeError__Cannot read properties of undefined (reading 'document')
+/api/v1/users__POST__1727676125343__NotFoundError__User document required
+/api/v1/users__POST__1727676143278__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727676149441__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727676158880__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727676330545__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727676334749__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727676349728__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727676350467__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727676363900__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727676400358__AuthenticationError__"body.firstName" is required
+/api/v1/users__POST__1727676421151__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727676468019__NotFoundError__User document required
+/api/v1/users__POST__1727676472474__NotFoundError__User document required
+/api/v1/users__POST__1727676567110__NotFoundError__User document required
+/api/v1/users__POST__1727676572023__ValidationError__User validation failed: startDate: Cast to date failed for value "Invalid Date" (type Date) at path "startDate", company: Path `company` is required., role: Path `role` is required., phoneNumber: Path `phoneNumber` is required., thirdName: Path `thirdName` is required., lastName: Path `lastName` is required.
+/api/v1/users__POST__1727676594201__ValidationError__User validation failed: startDate: Cast to date failed for value "Invalid Date" (type Date) at path "startDate", company: Path `company` is required., role: Path `role` is required., phoneNumber: Path `phoneNumber` is required., thirdName: Path `thirdName` is required., lastName: Path `lastName` is required.
+/api/v1/users__POST__1727676612193__ValidationError__User validation failed: startDate: Cast to date failed for value "Invalid Date" (type Date) at path "startDate", company: Path `company` is required., phoneNumber: Path `phoneNumber` is required., thirdName: Path `thirdName` is required., lastName: Path `lastName` is required.
+/api/v1/users__POST__1727676625661__ValidationError__User validation failed: startDate: Cast to date failed for value "Invalid Date" (type Date) at path "startDate", company: Path `company` is required., thirdName: Path `thirdName` is required., lastName: Path `lastName` is required.
+/api/v1/users__POST__1727676653050__ValidationError__User validation failed: startDate: Cast to date failed for value "Invalid Date" (type Date) at path "startDate", thirdName: Path `thirdName` is required., lastName: Path `lastName` is required.
+/api/v1/users__POST__1727676716450__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727676730806__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727676808511__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727676809397__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727676833462__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727676834377__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727676835155__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727676901038__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727677036933__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727677038594__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727677078621__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727677152544__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727677153362__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727677159066__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727677160345__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727677173163__ValidationError__"body.firstName" is required
+/api/v1/staffs__POST__1727677281243__ConflictError__Login already exists!
+/api/v1/staffs__POST__1727677289691__ValidationError__"body.login" length must be less than or equal to 15 characters long
+/api/v1/users__POST__1727677318581__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727677319470__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727677400206__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727678047954__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727678072832__NotFoundError__User document required
+/api/v1/users__POST__1727678087408__NotFoundError__User document required
+/api/v1/users__POST__1727678112929__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727678170834__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727678263899__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727678634115__ValidationError__"body.firstName" is required
+/api/v1/users/66f7db8a1ed7b05219a18fed__PUT__1727678659494__AuthenticationError__User is un authorized
+/api/v1/users/66f7db8a1ed7b05219a18fed__PUT__1727678666580__BadRequestError__Status must be 1 or 0!
+/api/v1/company__POST__1727678694346__ConflictError__Company already exists!
+/api/v1/users__POST__1727678811563__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727678818386__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727678819920__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727679147591__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727679265735__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727679289134__NotFoundError__User document required
+/api/v1/users__POST__1727679310037__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727679323037__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727679341914__ValidationError__"body.firstName" is required
+/api/v1/users__POST__1727679356400__NotFoundError__User document required
+/api/v1/users__POST__1727679378420__ValidationError__"body.phoneNumber" with value "998961234578" fails to match the required pattern: /^998[389][012345789][0-9]{7}$/
+/api/v1/users__POST__1727679390500__ValidationError__"body.startDate" is required
+/api/v1/users__POST__1727679419776__ValidationError__"body.phoneNumber" with value "998961234578" fails to match the required pattern: /^998[389][012345789][0-9]{7}$/
+/api/v1/users__POST__1727679435171__ValidationError__"body.startDate" must be in ISO 8601 date format
+/api/v1/users__POST__1727679447421__ValidationError__"body.startDate" must be in ISO 8601 date format

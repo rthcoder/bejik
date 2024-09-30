@@ -11,7 +11,7 @@ const router = Router();
 
 router.get('/api/v1/users', checkToken, checkRole, user.GET);
 router.get('/api/v1/users/:id', checkToken, checkRole, user.GET);
-router.post('/api/v1/users', checkToken, checkRole, validation, uploadFiles, multerHandler, user.POST);
+router.post('/api/v1/users', checkToken, checkRole, uploadFiles, multerHandler, validation, user.POST);
 router.put('/api/v1/users/:id', checkToken, checkRole, uploadFiles, multerHandler, user.PUT);
 router.delete('/api/v1/users/:id', checkToken, checkRole, user.DELETE);
 

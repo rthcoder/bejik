@@ -5,7 +5,6 @@ import { v4 as uuidv4 } from 'uuid'
 const storage = multer.diskStorage(
     {
         destination: (req, file, cb) => {
-
             if (file.fieldname === 'document') {
                 cb(null, 'uploads/documents/')
             }
@@ -27,6 +26,7 @@ const fileFilter = (req, file, cb) => {
         if (file.mimetype === 'application/pdf') {
             cb(null, true);
         }
+
         else {
             cb(new Error('Allowed only pdf files for user document!'), false);
         }

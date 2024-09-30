@@ -1,8 +1,8 @@
 import fs from "fs";
-import path from "path";
 import cors from "cors";
 import "./config/config.js";
 import express from 'express';
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -10,8 +10,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/public/documents/', express.static(path.join(process.cwd(), 'public', 'documents')));
-app.use('/public/images/', express.static(path.join(process.cwd(), 'public', 'images')));
+
+// app.use('/public/documents/', express.static(path.join(process.cwd(), 'public', 'documents')));
+// app.use('/public/images/', express.static(path.join(process.cwd(), 'public', 'images')));
 
 app.use(cors({
     origin: "*",

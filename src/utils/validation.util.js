@@ -9,10 +9,8 @@ const userValidation = JOI.object({
         thirdName: JOI.string().required().min(6).max(35),
         phoneNumber: JOI.string().required().regex(phoneNumberPattern),
         role: JOI.string().required().min(3).max(25),
-        // document: JOI.string().required(),
         company: JOI.string().required(),
         startDate: JOI.date().iso().required(),
-        // img: JOI.string().required(),
     })
 });
 

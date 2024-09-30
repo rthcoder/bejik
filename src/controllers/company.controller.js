@@ -28,7 +28,18 @@ const GET = async (req, res, next) => {
                 });
         };
 
-        const companies = await Company.find({ deletedAt: null }).select('-deletedAt -updatedAt -__v');
+        const { company } = req?.query;
+
+        const escapeRegex = (text) => {
+            return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+        };
+
+        const filter = {
+            deletedAt: null,
+            ...(company && { company: { $regex: escapeRegex(company), $options: 'i' } }),
+        }
+
+        const companies = await Company.find(filter).select('-deletedAt -updatedAt -__v');
 
         return res
             .status(200)
