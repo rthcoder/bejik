@@ -61,7 +61,7 @@ const GET = async (req, res, next) => {
             .json({
                 status: 200,
                 message: 'successfully read users!',
-                data: users
+                data: users, pagination
             });
 
     } catch (error) {
