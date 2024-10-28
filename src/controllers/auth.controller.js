@@ -61,4 +61,5 @@ const ME = async (req, res, next) => {
 
 export default {
     LOGIN,
+    ME
 };
