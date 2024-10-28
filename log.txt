@@ -363,3 +363,6 @@
 /api/v1/users__POST__1727679419776__ValidationError__"body.phoneNumber" with value "998961234578" fails to match the required pattern: /^998[389][012345789][0-9]{7}$/
 /api/v1/users__POST__1727679435171__ValidationError__"body.startDate" must be in ISO 8601 date format
 /api/v1/users__POST__1727679447421__ValidationError__"body.startDate" must be in ISO 8601 date format
+/api/v1/me__GET__1730107428510__AuthorizationError__User is un authorized
+/api/v1/me__GET__1730107630203__TypeError__Assignment to constant variable.
+/api/v1/me__GET__1730107696218__ReferenceError__result is not defined

@@ -28,6 +28,8 @@ import userRouter from "./routers/user.router.js";
 import staffRouter from "./routers/staff.router.js";
 import companyRouter from "./routers/company.router.js";
 
+
+
 !async function () {
     try {
         database();

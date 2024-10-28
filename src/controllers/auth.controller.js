@@ -45,6 +45,8 @@ const ME = async (req, res, next) => {
 
         const staff = await Staff.findOne({ _id: id })
 
+        delete staff.password
+
         return res
             .status(200)
             .json({
