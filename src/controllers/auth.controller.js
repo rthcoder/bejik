@@ -39,6 +39,26 @@ const LOGIN = async (req, res, next) => {
     }
 };
 
+const ME = async (req, res, next) => {
+    try {
+        const id = req?.staffId
+
+        const staff = await Staff.findOne({ _id: id })
+
+        return res
+            .status(200)
+            .json({
+                status: 200,
+                message: 'Get me!',
+                data: staff
+            })
+
+    } catch (error) {
+        console.log(error.message);
+        return next(error);
+    }
+}
+
 export default {
     LOGIN,
 };
