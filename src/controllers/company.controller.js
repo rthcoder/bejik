@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path"
 import errors from "../utils/error.js";
 import Company from "../models/company.model.js";
+import { paginationResponse } from "../helpers/pagination.js";
 
 const GET = async (req, res, next) => {
     try {
@@ -28,7 +29,7 @@ const GET = async (req, res, next) => {
                 });
         };
 
-        const { company } = req?.query;
+        const { company, page = process.DEFAULTS.page, limit = process.DEFAULTS.limit } = req?.query;
 
         const escapeRegex = (text) => {
             return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
@@ -39,14 +40,18 @@ const GET = async (req, res, next) => {
             ...(company && { company: { $regex: escapeRegex(company), $options: 'i' } }),
         }
 
-        const companies = await Company.find(filter).select('-deletedAt -updatedAt -__v');
+        const skip = (page - 1) * limit
+
+
+        const companies = await Company.find(filter).skip(skip).limit(limit).select('-deletedAt -updatedAt -__v');
+        const pagination = paginationResponse(companies.length, limit, page)
 
         return res
             .status(200)
             .json({
                 status: 200,
                 message: 'successfully read companies!',
-                data: companies
+                data: companies, pagination
             });
 
     } catch (error) {

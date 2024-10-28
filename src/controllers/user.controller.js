@@ -1,7 +1,7 @@
 import errors from "../utils/error.js";
 import User from "../models/user.model.js";
 import UserStatuses from "../types/types.js";
-
+import { paginationResponse } from "../helpers/pagination.js";
 
 const GET = async (req, res, next) => {
     try {
@@ -52,6 +52,9 @@ const GET = async (req, res, next) => {
         const users = await User.find(
             filter
         ).skip(skip).limit(limit).select('-updatedAt -deletedAt -__v').populate('company', '_id companyName img createdAt');
+
+        const pagination = paginationResponse(users.length, limit, page)
+
 
         return res
             .status(200)

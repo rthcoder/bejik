@@ -366,3 +366,5 @@
 /api/v1/me__GET__1730107428510__AuthorizationError__User is un authorized
 /api/v1/me__GET__1730107630203__TypeError__Assignment to constant variable.
 /api/v1/me__GET__1730107696218__ReferenceError__result is not defined
+/api/v1/company__GET__1730107906539__ReferenceError__page is not defined
+/api/v1/company__GET__1730107973483__ReferenceError__skip is not defined

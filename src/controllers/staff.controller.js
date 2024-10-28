@@ -1,5 +1,6 @@
 import errors from "../utils/error.js";
 import Staff from "../models/staff.model.js"
+import { paginationResponse } from "../helpers/pagination.js";
 
 const GET = async (req, res, next) => {
     try {
@@ -26,7 +27,7 @@ const GET = async (req, res, next) => {
                 });
         };
 
-        const { role, company, login, firstName, lastName, thirdName } = req?.query;
+        const { role, company, login, firstName, lastName, thirdName, page = process.DEFAULTS.page, limit = process.DEFAULTS.limit } = req?.query;
 
         const escapeRegex = (text) => {
             return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
@@ -42,14 +43,19 @@ const GET = async (req, res, next) => {
             ...(thirdName && { thirdName: { $regex: escapeRegex(thirdName), $options: 'i' } })
         }
 
-        const staffs = await Staff.find(filter).select('-deletedAt -updatedAt -password');
+        const skip = (page - 1) * limit
+
+
+        const staffs = await Staff.find(filter).skip(skip).limit(limit).select('-deletedAt -updatedAt -password');
+        const pagination = paginationResponse(staffs.length, limit, page)
+
 
         return res
             .status(200)
             .json({
                 status: 200,
                 message: 'successfully read Staffs!',
-                data: staffs
+                data: staffs, pagination
             });
 
     } catch (error) {
