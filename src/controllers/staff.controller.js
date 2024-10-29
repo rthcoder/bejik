@@ -8,7 +8,6 @@ const GET = async (req, res, next) => {
             const staff = await Staff.findById(
                 {
                     _id: req.params.id,
-                    deletedAt: null
                 }
             ).select('-deletedAt -updatedAt -password');
 
@@ -34,7 +33,6 @@ const GET = async (req, res, next) => {
         };
 
         const filter = {
-            deletedAt: null,
             ...(role && { role: { $regex: escapeRegex(role), $options: 'i' } }),
             ...(company && { company }),
             ...(login && { login: { $regex: escapeRegex(login), $options: 'i' } }),
@@ -72,7 +70,6 @@ const POST = async (req, res, next) => {
         const staffExist = await Staff.findOne(
             {
                 login,
-                deletedAt: null
             }
         )
 

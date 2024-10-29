@@ -10,7 +10,6 @@ const GET = async (req, res, next) => {
             const company = await Company.findById(
                 {
                     _id: req.params.id,
-                    deletedAt: null
                 }
             ).select('-deletedAt -updatedAt -__v');
 
@@ -36,7 +35,6 @@ const GET = async (req, res, next) => {
         };
 
         const filter = {
-            deletedAt: null,
             ...(company && { company: { $regex: escapeRegex(company), $options: 'i' } }),
         }
 

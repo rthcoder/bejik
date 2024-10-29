@@ -12,7 +12,6 @@ const GET = async (req, res, next) => {
             const user = await User.findById(
                 {
                     _id: id,
-                    deletedAt: null
                 }
             ).select('-updatedAt -deletedAt -__v').populate('company', '_id companyName img createdAt');
 
@@ -40,7 +39,6 @@ const GET = async (req, res, next) => {
         };
 
         const filter = {
-            deletedAt: null,
             ...(role && { role: { $regex: escapeRegex(role), $options: 'i' } }),
             ...(company && { company }),
             ...(status && { status: { $regex: escapeRegex(status), $options: 'i' } }),
