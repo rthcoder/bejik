@@ -51,11 +51,7 @@ const GET = async (req, res, next) => {
             filter
         ).skip(skip).limit(limit).select('-updatedAt -deletedAt -__v').populate('company', '_id companyName img createdAt');
 
-        const usersCount = await User.find(
-            {
-                deletedAt: null
-            }
-        )
+        const usersCount = await User.find()
 
         const pagination = paginationResponse(usersCount.length, limit, page)
 

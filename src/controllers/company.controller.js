@@ -38,11 +38,7 @@ const GET = async (req, res, next) => {
             ...(company && { company: { $regex: escapeRegex(company), $options: 'i' } }),
         }
 
-        const companyCount = await Company.find(
-            {
-                deletedAt: null
-            }
-        )
+        const companyCount = await Company.find()
 
         const skip = (page - 1) * limit
 
