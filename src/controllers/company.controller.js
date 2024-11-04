@@ -38,11 +38,16 @@ const GET = async (req, res, next) => {
             ...(company && { company: { $regex: escapeRegex(company), $options: 'i' } }),
         }
 
+        const companyCount = await Company.find(
+            {
+                deletedAt: null
+            }
+        )
+
         const skip = (page - 1) * limit
 
-
         const companies = await Company.find(filter).skip(skip).limit(limit).select('-deletedAt -updatedAt -__v');
-        const pagination = paginationResponse(companies.length, limit, page)
+        const pagination = paginationResponse(companyCount.length, limit, page)
 
         return res
             .status(200)

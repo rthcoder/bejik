@@ -45,7 +45,12 @@ const GET = async (req, res, next) => {
 
 
         const staffs = await Staff.find(filter).skip(skip).limit(limit).select('-deletedAt -updatedAt -password');
-        const pagination = paginationResponse(staffs.length, limit, page)
+        const staffCount = await Staff.find(
+            {
+                deletedAt: null
+            }
+        )
+        const pagination = paginationResponse(staffCount.length, limit, page)
 
 
         return res

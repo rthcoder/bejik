@@ -51,7 +51,13 @@ const GET = async (req, res, next) => {
             filter
         ).skip(skip).limit(limit).select('-updatedAt -deletedAt -__v').populate('company', '_id companyName img createdAt');
 
-        const pagination = paginationResponse(users.length, limit, page)
+        const usersCount = await User.find(
+            {
+                deletedAt: null
+            }
+        )
+
+        const pagination = paginationResponse(usersCount.length, limit, page)
 
 
         return res
@@ -117,11 +123,17 @@ const PUT = async (req, res, next) => {
         }
 
         const { id } = req.params;
-        let { status } = req.body;
+        let { status, endDate } = req.body;
 
         const user = await User.findById(id);
 
         if (!user) {
+            return next(
+                new errors.NotFoundError(404, "User not Found with given Id!")
+            );
+        }
+
+        if (!endDate) {
             return next(
                 new errors.NotFoundError(404, "User not Found with given Id!")
             );
@@ -145,6 +157,7 @@ const PUT = async (req, res, next) => {
 
         const updated_user = await User.findByIdAndUpdate(id, {
             status,
+            endDate: new Date(endDate),
             updatedAt: new Date()
         }, { new: true });
 
