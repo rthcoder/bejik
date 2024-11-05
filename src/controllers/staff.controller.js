@@ -142,7 +142,7 @@ const PUT = async (req, res, next) => {
         updated_staff.save()
 
         return res
-            .status(201)
+            .status(200)
             .json({
                 status: 200,
                 message: 'The staff successfully updated!',
@@ -178,7 +178,7 @@ const DELETE = async (req, res, next) => {
         );
 
         return res
-            .status(201)
+            .status(200)
             .json({
                 status: 200,
                 message: 'The staff successfully deleted!',

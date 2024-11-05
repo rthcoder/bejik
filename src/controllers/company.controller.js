@@ -176,7 +176,7 @@ const DELETE = async (req, res, next) => {
         );
 
         return res
-            .status(201)
+            .status(200)
             .json({
                 status: 200,
                 message: 'The company successfully deleted!',
