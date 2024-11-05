@@ -1,6 +1,8 @@
 import errors from "../utils/error.js";
 import Staff from "../models/staff.model.js"
 import { paginationResponse } from "../helpers/pagination.js";
+import bcrypt from "bcryptjs";
+
 
 const GET = async (req, res, next) => {
     try {
@@ -108,7 +110,6 @@ const PUT = async (req, res, next) => {
             );
         }
 
-
         const { id } = req?.params
 
         const staff = await Staff.findById(id)
@@ -120,14 +121,25 @@ const PUT = async (req, res, next) => {
             )
         }
 
+        let password
+
+        if (req.body.password) {
+            const salt = await bcrypt.genSalt(10);
+            password = await bcrypt.hash(req.body.password, salt);
+        }
+
         const updated_staff = await Staff.findByIdAndUpdate(
             {
                 _id: id
             },
             {
                 ...req?.body,
+                password: password,
                 updatedAt: new Date()
-            });
+            }
+        );
+
+        updated_staff.save()
 
         return res
             .status(201)

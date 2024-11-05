@@ -368,3 +368,13 @@
 /api/v1/me__GET__1730107696218__ReferenceError__result is not defined
 /api/v1/company__GET__1730107906539__ReferenceError__page is not defined
 /api/v1/company__GET__1730107973483__ReferenceError__skip is not defined
+/api/v1/staffs/66f7e16b8d7096751d04ea89__PUT__1730790321968__AuthorizationError__User is un authorized
+/api/v1/staffs/66f7e16b8d7096751d04ea89__PUT__1730790538662__TypeError__Spread syntax requires ...iterable[Symbol.iterator] to be a function
+/api/v1/auth/login__POST__1730791408801__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1730791452385__AuthorizationError__Invalid username or password
+/api/v1/staffs/66f7e16b8d7096751d04ea89__PUT__1730791459096__TypeError__Cannot read properties of undefined (reading 'password')
+/api/v1/staffs/66f7e16b8d7096751d04ea89__PUT__1730791481301__TypeError__Cannot read properties of undefined (reading 'password')
+/api/v1/staffs/66f7e16b8d7096751d04ea89__PUT__1730791505226__TypeError__Cannot read properties of undefined (reading 'password')
+/api/v1/auth/login__POST__1730791525148__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1730791563705__AuthorizationError__Invalid username or password
+/api/v1/auth/login__POST__1730791583782__AuthorizationError__Invalid username or password
