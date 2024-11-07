@@ -8,7 +8,7 @@ const GET = async (req, res, next) => {
     return next(new errors.NotFoundError(404, "Id required!"));
   }
 
-  const user = await User.findById(id)
+  const user = await User.findById(id).select('-updatedAt -deletedAt -__v').populate('company', '_id companyName img createdAt');
 
   if (!user) {
     return next(
