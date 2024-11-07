@@ -27,7 +27,7 @@ import authRouter from "./routers/auth.router.js";
 import userRouter from "./routers/user.router.js";
 import staffRouter from "./routers/staff.router.js";
 import companyRouter from "./routers/company.router.js";
-
+import clientSideRouter from "./routers/clientSide.router.js"
 
 
 !async function () {
@@ -37,6 +37,7 @@ import companyRouter from "./routers/company.router.js";
         app.use(userRouter);
         app.use(staffRouter);
         app.use(companyRouter);
+        app.use(clientSideRouter)
     } catch (error) {
         console.log(error);
     }
