@@ -9,7 +9,7 @@ const UserStatuses = {
 }
 
 
-export default {
+export {
     Roles,
     UserStatuses
 }

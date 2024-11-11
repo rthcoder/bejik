@@ -1,6 +1,6 @@
 import errors from "../utils/error.js";
 import User from "../models/user.model.js";
-import UserStatuses from "../types/types.js";
+import { UserStatuses } from "../types/types.js";
 import { paginationResponse } from "../helpers/pagination.js";
 
 const GET = async (req, res, next) => {
@@ -91,7 +91,7 @@ const POST = async (req, res, next) => {
             startDate: new Date(req?.body?.startDate),
             document,
             img,
-            status: UserStatuses.UserStatuses.ACTIVE
+            status: UserStatuses.ACTIVE
         });
 
 
@@ -144,11 +144,11 @@ const PUT = async (req, res, next) => {
         }
 
         if (status === 1) {
-            status = UserStatuses.UserStatuses.ACTIVE;
+            status = UserStatuses.ACTIVE;
         }
 
         else if (status === 0) {
-            status = UserStatuses.UserStatuses.PASSIVE;
+            status = UserStatuses.PASSIVE;
         }
 
         const updated_user = await User.findByIdAndUpdate(id, {
@@ -191,7 +191,7 @@ const DELETE = async (req, res, next) => {
             {
                 deletedAt: new Date(),
                 endDate: new Date(),
-                status: UserStatuses.UserStatuses.PASSIVE
+                status: UserStatuses.PASSIVE
             }
         );
 

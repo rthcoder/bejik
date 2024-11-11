@@ -378,3 +378,12 @@
 /api/v1/auth/login__POST__1730791525148__AuthorizationError__Invalid username or password
 /api/v1/auth/login__POST__1730791563705__AuthorizationError__Invalid username or password
 /api/v1/auth/login__POST__1730791583782__AuthorizationError__Invalid username or password
+/api/v1/company__POST__1731157319509__AuthenticationError__Token is invalid
+/api/v1/staffs__GET__1731157541887__AuthorizationError__User is un authorized
+/api/v1/staffs__POST__1731157681698__AuthorizationError__The token invalid
+/api/v1/auth/login__POST__1731301244634__AuthorizationError__Invalid username or password
+/api/v1/staffs__POST__1731301339001__ValidationError__"body.thirdName" must only contain alpha-numeric characters
+/api/v1/staffs__POST__1731301440669__ValidationError__"body.login" length must be at least 6 characters long
+/api/v1/staffs__POST__1731301452237__ValidationError__"body.login" length must be at least 6 characters long
+/api/v1/staffs__POST__1731301458470__ConflictError__Login already exists!
+/api/v1/staffs__POST__1731301466001__ValidationError__"body.password" length must be at least 8 characters long

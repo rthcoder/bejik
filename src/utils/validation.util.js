@@ -16,9 +16,9 @@ const userValidation = JOI.object({
 
 const staffValidation = JOI.object({
     body: JOI.object({
-        firstName: JOI.string().required().min(3).max(25).alphanum(),
-        lastName: JOI.string().required().min(6).max(25).alphanum(),
-        thirdName: JOI.string().required().min(5).max(35).alphanum(),
+        firstName: JOI.string().required().min(3).max(25),
+        lastName: JOI.string().required().min(6).max(25),
+        thirdName: JOI.string().required().min(5).max(35),
         role: JOI.string().required().min(2).max(10),
         phoneNumber: JOI.string().required().regex(phoneNumberPattern),
         login: JOI.string().required().min(6).max(15),

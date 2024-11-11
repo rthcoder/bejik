@@ -40,6 +40,8 @@ const fileFilter = (req, file, cb) => {
     }
     else if (file.fieldname === 'logo') {
         if (file.mimetype.startsWith('image/')) {
+            console.log(file);
+
             cb(null, true);
         } else {
             cb(new Error('Allowed only image files for company logo!'), false);
