@@ -28,7 +28,7 @@ const GET = async (req, res, next) => {
                 });
         };
 
-        const { role, company, login, firstName, lastName, thirdName, page = process.DEFAULTS.page, limit = process.DEFAULTS.limit } = req?.query;
+        const { role, company, login, firstName, lastName, phoneNumber, thirdName, filterDate, page = process.DEFAULTS.page, limit = process.DEFAULTS.limit } = req?.query;
 
         const escapeRegex = (text) => {
             return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
@@ -40,15 +40,24 @@ const GET = async (req, res, next) => {
             ...(login && { login: { $regex: escapeRegex(login), $options: 'i' } }),
             ...(firstName && { firstName: { $regex: escapeRegex(firstName), $options: 'i' } }),
             ...(lastName && { lastName: { $regex: escapeRegex(lastName), $options: 'i' } }),
-            ...(thirdName && { thirdName: { $regex: escapeRegex(thirdName), $options: 'i' } })
+            ...(thirdName && { thirdName: { $regex: escapeRegex(thirdName), $options: 'i' } }),
+            ...(phoneNumber && { phoneNumber: { $regex: escapeRegex(phoneNumber), $options: 'i' } }),
+        }
+
+        if (filterDate && filterDate.includes('_')) {
+            const [startDate, endDate] = filterDate.split('_');
+
+            if (startDate && endDate) {
+                filter.creteadAt = { $gte: new Date(startDate) };
+                filter.creteadAt = { $lte: new Date(endDate) };
+            }
         }
 
         const skip = (page - 1) * limit
 
 
         const staffs = await Staff.find(filter).skip(skip).limit(limit).select('-deletedAt -updatedAt -password');
-        const staffCount = await Staff.find()
-        const pagination = paginationResponse(staffCount.length, limit, page)
+        const pagination = paginationResponse(staffs.length, limit, page)
 
 
         return res

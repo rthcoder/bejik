@@ -2,73 +2,100 @@ import errors from "../utils/error.js";
 import User from "../models/user.model.js";
 import { UserStatuses } from "../types/types.js";
 import { paginationResponse } from "../helpers/pagination.js";
+import mongoose from 'mongoose';
 
 const GET = async (req, res, next) => {
     try {
-
-        const id = req?.params?.id
+        const id = req?.params?.id;
 
         if (id) {
-            const user = await User.findById(
-                {
-                    _id: id,
-                }
-            ).select('-updatedAt -deletedAt -__v').populate('company', '_id companyName img createdAt');
+            const user = await User.findById(id)
+                .select('-updatedAt -deletedAt -__v')
+                .populate('company', '_id companyName img createdAt');
 
             if (!user) {
-                return next(
-                    new errors.NotFoundError(404, "User not Found with given Id!")
-                )
-            };
+                return next(new errors.NotFoundError(404, "User not found with given Id!"));
+            }
 
-            return res
-                .status(200)
-                .json({
-                    status: 200,
-                    message: 'successfully read user!',
-                    data: user
-                });
-        };
+            return res.status(200).json({
+                status: 200,
+                message: 'Successfully retrieved user!',
+                data: user
+            });
+        }
 
-        const { role, company, status, firstName, lastName, thirdName, page = process.DEFAULTS.page, limit = process.DEFAULTS.limit } = req?.query;
+        const {
+            role,
+            company,
+            status,
+            firstName,
+            lastName,
+            thirdName,
+            filterStartDate,
+            filterEndDate,
+            page = process.DEFAULTS.page,
+            limit = process.DEFAULTS.limit
+        } = req?.query;
 
-        let skip = (page - 1) * limit
+        let skip = (page - 1) * limit;
 
         const escapeRegex = (text) => {
             return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
         };
 
+        const isCompanyIdValid = mongoose.Types.ObjectId.isValid(company);
+
         const filter = {
             ...(role && { role: { $regex: escapeRegex(role), $options: 'i' } }),
-            ...(company && { company }),
+            ...(isCompanyIdValid && { company }),
             ...(status && { status: { $regex: escapeRegex(status), $options: 'i' } }),
             ...(firstName && { firstName: { $regex: escapeRegex(firstName), $options: 'i' } }),
             ...(lastName && { lastName: { $regex: escapeRegex(lastName), $options: 'i' } }),
             ...(thirdName && { thirdName: { $regex: escapeRegex(thirdName), $options: 'i' } })
+        };
+
+        if (filterStartDate && filterStartDate.includes('_')) {
+            const [startDate, endDate] = filterStartDate.split('_');
+
+            if (startDate && endDate) {
+                filter.creteadAt = { $gte: new Date(startDate) };
+                filter.creteadAt = { $lte: new Date(endDate) };
+            }
         }
 
-        const users = await User.find(
-            filter
-        ).skip(skip).limit(limit).select('-updatedAt -deletedAt -__v').populate('company', '_id companyName img createdAt');
+        if (filterEndDate && filterEndDate.includes('_')) {
+            const [startDate, endDate] = filterEndDate.split('_');
 
-        const usersCount = await User.find()
+            if (startDate && endDate) {
+                filter.endDate = { $gte: new Date(startDate) };
+                filter.endDate = { $lte: new Date(endDate) };
+            }
+        }
 
-        const pagination = paginationResponse(usersCount.length, limit, page)
+        const users = await User.find(filter)
+            .skip(skip)
+            .limit(limit)
+            .select('-updatedAt -deletedAt -__v')
+            .populate('company', '_id companyName img createdAt');
 
+        const usersCount = await User.countDocuments(filter);
 
-        return res
-            .status(200)
-            .json({
-                status: 200,
-                message: 'successfully read users!',
-                data: users, pagination
-            });
+        const pagination = paginationResponse(usersCount, limit, page);
+
+        return res.status(200).json({
+            status: 200,
+            message: 'Successfully retrieved users!',
+            data: users,
+            pagination
+        });
 
     } catch (error) {
         console.log(error.message);
         return next(error);
     }
-}
+};
+
+
 
 const POST = async (req, res, next) => {
     try {

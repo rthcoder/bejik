@@ -392,3 +392,12 @@
 /api/v1/users__POST__1731397840989__AuthenticationError__jwt expired
 /api/v1/users__POST__1731397855842__ValidationError__"body.firstName" is not allowed
 /api/v1/users__POST__1731397889147__ValidationError__"body.lastName" is not allowed
+/api/v1/users?company=dav__GET__1731404189875__Error__Can't use $options
+/api/v1/users?company=dav__GET__1731404201764__CastError__Cast to ObjectId failed for value "dav" (type string) at path "company" for model "User"
+/api/v1/users?company=dav__GET__1731404929150__CastError__Cast to ObjectId failed for value "dav" (type string) at path "company" for model "User"
+/api/v1/users?company=dav__GET__1731404995237__ReferenceError__mongoose is not defined
+/api/v1/users?company=dav__GET__1731405022299__TypeError__Cannot read properties of undefined (reading 'ObjectId')
+/api/v1/users?company=dav__GET__1731405043092__TypeError__Types.isValid is not a function
+/api/v1/users?company=dav__GET__1731405120052__ReferenceError__mongoose is not defined
+/api/v1/users?company=dav__GET__1731405139685__CastError__Cast to ObjectId failed for value "dav" (type string) at path "company" for model "User"
+/api/v1/users?company=dav__GET__1731405229121__CastError__Cast to ObjectId failed for value "dav" (type string) at path "company" for model "User"
