@@ -121,9 +121,6 @@ const PUT = async (req, res, next) => {
             return next(new errors.NotFoundError(404, "Company not Found with given Id!"));
         }
 
-        console.log(req.files?.logo);
-
-        // Eski rasmni o'chirish
         if (req.files?.logo) {
             const oldImagePath = path.join(process.cwd(), 'uploads/images/', company.img);
             fs.unlink(oldImagePath, (err) => {
@@ -132,6 +129,8 @@ const PUT = async (req, res, next) => {
         }
 
         const img = req.files?.logo?.[0]?.filename;
+        console.log(img);
+
 
         const updatedCompany = await Company.findByIdAndUpdate(
             { _id: id },
