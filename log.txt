@@ -389,3 +389,6 @@
 /api/v1/staffs__POST__1731301466001__ValidationError__"body.password" length must be at least 8 characters long
 /api/v1/company/66f7daeb91218c7b87186240__PUT__1731303438737__AuthenticationError__User is un authorized
 /api/v1/company/66f7daeb91218c7b87186240__PUT__1731303443758__AuthenticationError__jwt malformed
+/api/v1/users__POST__1731397840989__AuthenticationError__jwt expired
+/api/v1/users__POST__1731397855842__ValidationError__"body.firstName" is not allowed
+/api/v1/users__POST__1731397889147__ValidationError__"body.lastName" is not allowed
